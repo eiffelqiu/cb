@@ -6,8 +6,8 @@ application = {
     fps = 30,
 
     -- Size of screen graphics are targeted to.
-    width = 480,
-    height = 800,
+    width = <%= @width %>,
+    height = <%= @height %>,
 
     -- How to stretch graphics on a larger screen.
     scale = "letterbox"

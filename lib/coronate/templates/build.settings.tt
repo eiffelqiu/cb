@@ -3,7 +3,7 @@ settings = {
   orientation = {
     default = "landscape",
     supported = {
-      "landscapeLeft", "landscapeRight"
+    <%= @orient %>
     }
   },
 
