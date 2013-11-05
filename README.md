@@ -16,7 +16,7 @@
 ### Generate Corona Porject
 
     $ cb project helloworld   # default width=320 height=480 orientation=landscape
-    $ cb project helloworld -w 320 -h 568 --no-landscape # default width=320 height=568 orientation=portrait 
+    $ cb project helloworld -w 320 -h 568 --no-landscape # width=320 height=568 orientation=portrait 
     
 ### Generate a scene file
 
