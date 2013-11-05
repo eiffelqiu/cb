@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
-require 'cb/cli'
+require 'coronate/cli'
 
 CLI.start

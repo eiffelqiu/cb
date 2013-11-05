@@ -14,14 +14,14 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "cb"
-  gem.homepage = "http://github.com/eiffelqiu/cb"
+  gem.name = "coronate"
+  gem.homepage = "http://github.com/eiffelqiu/coronate"
   gem.license = "MIT"
   gem.summary = %Q{Corona Builder}
   gem.description = %Q{Corona project builder tools}
   gem.email = "eiffelqiu@gmail.com"
   gem.authors = ["Eiffel Qiu"]
-  gem.executables = ['cb']
+  gem.executables = ['coronate']
   gem.files = Dir.glob('lib/**/*.*')
   # dependencies defined in Gemfile
 end
@@ -45,7 +45,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "cb #{version}"
+  rdoc.title = "coronate #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
