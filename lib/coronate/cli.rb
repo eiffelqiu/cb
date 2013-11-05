@@ -22,6 +22,8 @@ class CLI < Thor
     template 'templates/endingScene.tt', "#{name}/endingScene.lua"
     template 'templates/settingsScene.tt', "#{name}/settingsScene.lua"
     template 'templates/menuScene.tt', "#{name}/menuScene.lua"
+    template 'templates/config.tt', "#{name}/config.lua"
+    template 'templates/build.settings.tt', "#{name}/build.settings"
   end
 
 end
