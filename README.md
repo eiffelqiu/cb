@@ -10,13 +10,14 @@
     $ coronate 
     Commands:
     coronate help [COMMAND]  # Describe available commands or one specific command
-    coronate project         # generate a corona project
-    coronate scene           # generate an scene    
+  	coronate project [NAME]  # generate a corona project
+  	coronate scene [NAME]    # generate an scene
     
     
 ### Generate Corona Porject
 
-    $ cb project helloworld
+    $ cb project helloworld   # default width=320 height=480 orientation=landscape
+    $ cb project helloworld -w 320 -h 568 --no-landscape # default width=320 height=568 orientation=portrait
     
     
 ### Generate a scene file
