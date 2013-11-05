@@ -16,10 +16,10 @@
     
 ### Generate Corona Porject
 
-    $ cb project helloworld
+    $ coronate project helloworld
     
     
 ### Generate a scene file
 
-    $ cb scene page1
+    $ coronate scene page1
     
