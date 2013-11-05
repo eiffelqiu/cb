@@ -14,15 +14,15 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "Corona Builder"
-  gem.homepage = "http://github.com/eiffelqiu/corona_builder"
+  gem.name = "cb"
+  gem.homepage = "http://github.com/eiffelqiu/cb"
   gem.license = "MIT"
   gem.summary = %Q{Corona Builder}
   gem.description = %Q{Corona project builder tools}
   gem.email = "eiffelqiu@gmail.com"
   gem.authors = ["Eiffel Qiu"]
   gem.executables = ['cb']
-  gem.files = Dir.glob('lib/**/*.rb')
+  gem.files = Dir.glob('lib/**/*.*')
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
