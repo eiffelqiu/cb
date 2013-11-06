@@ -12,6 +12,21 @@ application = {
     -- How to stretch graphics on a larger screen.
     scale = "letterbox"
 
+  },
+
+  --[[
+  -- Push notifications
+
+  notification =
+  {
+      iphone =
+      {
+          types =
+          {
+              "badge", "sound", "alert", "newsstand"
+          }
+      }
   }
+  --]]      
 
 }
