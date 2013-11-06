@@ -1,13 +1,13 @@
 module Coronate
   module Builder
     module EbookBuilder
-      def build_ebook(name, options={})
-        @name, @width, @height = name, options[:width], options[:height]
-        @orient = if options[:landscape] then
-                    %{ "landscapeLeft", "landscapeRight" }
-                  else
-                    %{ "portrait", "portraitUpsideDown" }
-                  end
+      def build_ebook(options)
+        @name, @width, @height, @orient = options[:name],
+            options[:width],
+            options[:height],
+            options[:landscape] ?
+                %{ "landscapeLeft", "landscapeRight" } : %{ "portrait", "portraitUpsideDown" }
+
         template 'builder/templates/ebook/build.settings.tt', "#{@name}/build.settings"
         template 'builder/templates/ebook/title.lua.tt', "#{@name}/title.lua"
         template 'builder/templates/ebook/config.lua.tt', "#{@name}/config.lua"

@@ -1,13 +1,13 @@
 module Coronate
   module Builder
     module AppBuilder
-      def build_app(name, options={})
-        @name, @width, @height = name, options[:width], options[:height]
-        @orient = if options[:landscape] then
-                    %{ "landscapeLeft", "landscapeRight" }
-                  else
-                    %{ "portrait", "portraitUpsideDown" }
-                  end
+      def build_app(options)
+        @name, @width, @height, @orient = options[:name],
+            options[:width],
+            options[:height],
+            options[:landscape] ?
+                %{ "landscapeLeft", "landscapeRight" } : %{ "portrait", "portraitUpsideDown" }
+
         template 'builder/templates/app/build.settings.tt', "#{@name}/build.settings"
         template 'builder/templates/app/config.lua.tt', "#{@name}/config.lua"
         template 'builder/templates/app/view1.lua.tt', "#{@name}/view1.lua"
