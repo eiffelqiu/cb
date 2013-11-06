@@ -20,8 +20,6 @@ class Coronate::CLI < Thor
   end
 
   desc "project [NAME]", "generate a corona project"
-
-
   def project(name='project1')
     build_project(name, options)
   end

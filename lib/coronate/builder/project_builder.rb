@@ -1,7 +1,6 @@
 module Coronate
   module Builder
     module ProjectBuilder
-
       def build_project(name, options={})
         @name, @width, @height = name, options[:width], options[:height]
         @orient = if options[:landscape] then
@@ -19,7 +18,6 @@ module Coronate
         template 'builder/templates/project/config.tt', "#{@name}/config.lua"
         template 'builder/templates/project/build.settings.tt', "#{@name}/build.settings"
       end
-
     end
   end
 end

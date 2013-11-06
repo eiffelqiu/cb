@@ -1,7 +1,6 @@
 module Coronate
   module Builder
     module GameBuilder
-
       def build_game(name, options={})
         @name, @width, @height = name, options[:width], options[:height]
         @orient = if options[:landscape] then
@@ -9,7 +8,6 @@ module Coronate
                   else
                     %{ "portrait", "portraitUpsideDown" }
                   end
-
         template 'builder/templates/game/build.settings.tt', "#{@name}/build.settings"
         template 'builder/templates/game/config.lua.tt', "#{@name}/config.lua"
         template 'builder/templates/game/main.lua.tt', "#{@name}/main.lua"
@@ -23,7 +21,6 @@ module Coronate
         copy_file 'builder/templates/game/grass.png', "#{@name}/grass.png"
         copy_file 'builder/templates/game/logo.png', "#{@name}/logo.png"
       end
-
     end
   end
 end

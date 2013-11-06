@@ -1,7 +1,6 @@
 module Coronate
   module Builder
     module EbookBuilder
-
       def build_ebook(name, options={})
         @name, @width, @height = name, options[:width], options[:height]
         @orient = if options[:landscape] then
@@ -9,7 +8,6 @@ module Coronate
                   else
                     %{ "portrait", "portraitUpsideDown" }
                   end
-
         template 'builder/templates/ebook/build.settings.tt', "#{@name}/build.settings"
         template 'builder/templates/ebook/title.lua.tt', "#{@name}/title.lua"
         template 'builder/templates/ebook/config.lua.tt', "#{@name}/config.lua"
@@ -23,7 +21,6 @@ module Coronate
         copy_file 'builder/templates/ebook/space.jpg', "#{@name}/space.jpg"
         copy_file 'builder/templates/ebook/sun.png', "#{@name}/sun.png"
       end
-
     end
   end
 end
