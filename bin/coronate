@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
 require 'coronate/cli'
-require 'coronate/builder/project_builder'
 
 Coronate::CLI.start
