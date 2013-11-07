@@ -1,17 +1,15 @@
 require 'thor'
 require_relative 'extensions/string_extention'
-
 %w[project app game ebook scene].each { |task| require_relative "builder/#{task}_builder" }
 
 class Coronate::CLI < Thor
   include Thor::Actions
-
   Coronate::Builder.constants.each { |b| include "Coronate::Builder::#{b}".to_class }
 
   def initialize(*args)
     super
     method = args[2][:current_command][:name]
-    processing(args[0][0] || "#{method}1" , method)
+    processing(args[0][0] || "#{method}" , method)  # default project name is app type name
   end
 
   def self.source_root
@@ -23,19 +21,19 @@ class Coronate::CLI < Thor
   class_option :landscape, :type => :boolean, :default => false, :required => false, :aliases => "-l", :desc => "landscape or not"
 
   desc "scene [NAME]", "generate an scene"
-  def scene(name='scene1') end
+  def scene(name=nil) end
 
   desc "project [NAME]", "generate a corona project"
-  def project(name='project1') end
+  def project(name=nil) end
 
   desc "game [NAME]", "generate a corona game project"
-  def game(name='game1') end
+  def game(name=nil) end
 
   desc "ebook [NAME]", "generate a corona ebook project"
-  def ebook(name='ebook1') end
+  def ebook(name=nil) end
 
   desc "app [NAME]", "generate a corona app project"
-  def app(name='app1') end
+  def app(name=nil) end
 
   private
 
