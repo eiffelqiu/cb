@@ -6,15 +6,9 @@ class Coronate::CLI < Thor
   include Thor::Actions
   Coronate::Builder.constants.each { |b| include "Coronate::Builder::#{b}".to_class }
 
-  def initialize(*args)
-    super
-    method = args[2][:current_command][:name]
-    processing(args[0][0] || "#{method}" , method)  # default project name is app type name
-  end
+  def initialize(*args); super; processing(*args) end
 
-  def self.source_root
-    File.dirname(__FILE__)
-  end
+  def self.source_root; File.dirname(__FILE__) end
 
   class_option :width, :type => :numeric, :default => 320, :required => false, :aliases => "-w", :desc => "width"
   class_option :height, :type => :numeric, :default => 480, :required => false, :aliases => "-h", :desc => "height"
@@ -36,14 +30,11 @@ class Coronate::CLI < Thor
   def app(name=nil) end
 
   private
-
-  def processing(name,method)
-    @name, @width, @height, @orient = name,
-        options[:width],
-        options[:height],
-        options[:layout] ?
-            %{ "portrait", "portraitUpsideDown" } : %{ "landscapeLeft", "landscapeRight" } # default portrait
+  def processing(*args)
+    method = args[2][:current_command][:name] # default project name is app type name
+    @name, @width, @height, @orient = args[0][0] || "#{method}", options[:width], options[:height],
+                                      options[:layout] ? # default portrait
+                                       %{ "portrait", "portraitUpsideDown" } : %{ "landscapeLeft", "landscapeRight" }
     send "build_#{method}"
   end
-
 end
