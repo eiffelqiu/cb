@@ -1,11 +1,12 @@
 require 'thor'
+require_relative 'extensions/string_extention'
 
-%w[project app game ebook scene].each { |mb| require_relative "builder/#{mb}_builder" }
+%w[project app game ebook scene].each { |task| require_relative "builder/#{task}_builder" }
 
 class Coronate::CLI < Thor
   include Thor::Actions
-  include Coronate::Builder::EbookBuilder, Coronate::Builder::AppBuilder, Coronate::Builder::GameBuilder
-  include Coronate::Builder::ProjectBuilder, Coronate::Builder::SceneBuilder
+
+  Coronate::Builder.constants.each { |b| include "Coronate::Builder::#{b}".to_class }
 
   def initialize(*args)
     super
