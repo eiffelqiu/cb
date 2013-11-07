@@ -18,7 +18,7 @@ class Coronate::CLI < Thor
 
   class_option :width, :type => :numeric, :default => 320, :required => false, :aliases => "-w", :desc => "width"
   class_option :height, :type => :numeric, :default => 480, :required => false, :aliases => "-h", :desc => "height"
-  class_option :landscape, :type => :boolean, :default => false, :required => false, :aliases => "-l", :desc => "landscape or not"
+  class_option :layout, :type => :boolean, :default => true, :required => false, :aliases => "-l", :desc => "layout"
 
   desc "scene [NAME]", "generate an scene"
   def scene(name=nil) end
@@ -41,8 +41,8 @@ class Coronate::CLI < Thor
     @name, @width, @height, @orient = name,
         options[:width],
         options[:height],
-        options[:landscape] ?
-            %{ "landscapeLeft", "landscapeRight" } : %{ "portrait", "portraitUpsideDown" }
+        options[:layout] ?
+            %{ "portrait", "portraitUpsideDown" } : %{ "landscapeLeft", "landscapeRight" } # default portrait
     send "build_#{method}"
   end
 
