@@ -1,12 +1,4 @@
 require 'thor'
-require_relative 'method_hooker'
-
-module Kernel
-  private
-  def __method__
-    caller[0] =~ /`([^']*)'/ and $1
-  end
-end
 
 %w[project app game ebook scene].each { |mb| require_relative "builder/#{mb}_builder" }
 
@@ -14,7 +6,11 @@ class Coronate::CLI < Thor
   include Thor::Actions
   include Coronate::Builder::EbookBuilder, Coronate::Builder::AppBuilder, Coronate::Builder::GameBuilder
   include Coronate::Builder::ProjectBuilder, Coronate::Builder::SceneBuilder
-  extend MethodHooker
+
+  def initialize(*args)
+    super
+    processing(args[0][0], args[2][:current_command][:name])
+  end
 
   def self.source_root
     File.dirname(__FILE__)
@@ -25,29 +21,19 @@ class Coronate::CLI < Thor
   class_option :landscape, :type => :boolean, :default => false, :required => false, :aliases => "-l", :desc => "landscape or not"
 
   desc "scene [NAME]", "generate an scene"
-  def scene(name='scene1')
-    processing(name,__method__)
-  end
+  def scene(name='scene1') end
 
   desc "project [NAME]", "generate a corona project"
-  def project(name='project1')
-    processing(name,__method__)
-  end
+  def project(name='project1') end
 
   desc "game [NAME]", "generate a corona game project"
-  def game(name='game1')
-    processing(name,__method__)
-  end
+  def game(name='game1') end
 
   desc "ebook [NAME]", "generate a corona ebook project"
-  def ebook(name='ebook1')
-    processing(name,__method__)
-  end
+  def ebook(name='ebook1') end
 
   desc "app [NAME]", "generate a corona app project"
-  def app(name='app1')
-    processing(name,__method__)
-  end
+  def app(name='app1') end
 
   private
 
