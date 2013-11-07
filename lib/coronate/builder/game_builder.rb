@@ -1,13 +1,7 @@
 module Coronate
   module Builder
     module GameBuilder
-      def build_game(options)
-        @name, @width, @height, @orient = options[:name],
-            options[:width],
-            options[:height],
-            options[:landscape] ?
-                %{ "landscapeLeft", "landscapeRight" } : %{ "portrait", "portraitUpsideDown" }
-
+      def build_game
         template 'builder/templates/game/build.settings.tt', "#{@name}/build.settings"
         template 'builder/templates/game/config.lua.tt', "#{@name}/config.lua"
         template 'builder/templates/game/main.lua.tt', "#{@name}/main.lua"

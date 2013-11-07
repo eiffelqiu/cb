@@ -1,13 +1,7 @@
 module Coronate
   module Builder
     module ProjectBuilder
-      def build_project(options)
-        @name, @width, @height, @orient = options[:name],
-            options[:width],
-            options[:height],
-            options[:landscape] ?
-                %{ "landscapeLeft", "landscapeRight" } : %{ "portrait", "portraitUpsideDown" }
-
+      def build_project
         empty_directory "#{@name}/assets"
         template 'builder/templates/project/main.tt', "#{@name}/main.lua"
         template 'builder/templates/project/utils.tt', "#{@name}/utils.lua"
