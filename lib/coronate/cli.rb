@@ -35,6 +35,6 @@ class Coronate::CLI < Thor
     @name, @width, @height, @orient = args[0][0] || "#{method}", options[:width], options[:height],
                                       options[:layout] ? # default portrait
                                        %{ "portrait", "portraitUpsideDown" } : %{ "landscapeLeft", "landscapeRight" }
-    send "build_#{method}"
+    send "build_#{method}" if method != 'help' 
   end
 end
