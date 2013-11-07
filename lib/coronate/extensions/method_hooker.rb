@@ -10,9 +10,7 @@ module Extensions
 
     module ClassMethods
       def before_each_method type, &block
-        singleton = class << self;
-          self;
-        end
+        singleton = class << self; self; end
         case type
           when :instance
             this = self

@@ -10,7 +10,8 @@ class Coronate::CLI < Thor
 
   def initialize(*args)
     super
-    processing(args[0][0], args[2][:current_command][:name])
+    method = args[2][:current_command][:name]
+    processing(args[0][0] || "#{method}1" , method)
   end
 
   def self.source_root
