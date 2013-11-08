@@ -8,13 +8,21 @@
 ### Help
 
     $ coronate 
-	Commands:
-	  coronate app [NAME]      # generate a corona app project
-	  coronate ebook [NAME]    # generate a corona ebook project
-	  coronate game [NAME]     # generate a corona game project
-	  coronate help [COMMAND]  # Describe available commands or one specific command
-	  coronate project [NAME]  # generate a corona project
-	  coronate scene [NAME]    # generate an scene
+    Commands:
+      coronate app [NAME]      # generate a corona app project
+      coronate ebook [NAME]    # generate a corona ebook project
+      coronate game [NAME]     # generate a corona game project
+      coronate help [COMMAND]  # Describe available commands or one specific command
+      coronate project [NAME]  # generate a corona project
+      coronate scene [NAME]    # generate an scene
+
+    Options:
+      -w, [--width=N]   # width
+                        # Default: 320
+      -h, [--height=N]  # height
+                        # Default: 480
+      -l, [--layout]    # layout
+                        # Default: true
 
 ### Generate a corona blank project
 
