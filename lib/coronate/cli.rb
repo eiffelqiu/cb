@@ -14,20 +14,12 @@ class Coronate::CLI < Thor
   class_option :height, :type => :numeric, :default => 480, :required => false, :aliases => "-h", :desc => "height"
   class_option :layout, :type => :boolean, :default => true, :required => false, :aliases => "-l", :desc => "layout"
 
-  desc "scene [NAME]", "generate an scene"
-  def scene(name=nil) end
-
-  desc "project [NAME]", "generate a corona project"
-  def project(name=nil) end
-
-  desc "game [NAME]", "generate a corona game project"
-  def game(name=nil) end
-
-  desc "ebook [NAME]", "generate a corona ebook project"
-  def ebook(name=nil) end
-
-  desc "app [NAME]", "generate a corona app project"
-  def app(name=nil) end
+  %w[scene project game ebook app].each do |type|
+    class_eval %{
+      desc "#{type} [NAME]", "generate a corona #{type}"
+      def #{type}(name=nil) end
+    }
+  end
 
   private
   def processing(*args)
