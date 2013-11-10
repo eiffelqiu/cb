@@ -1,5 +1,5 @@
 require 'thor'
-require_relative 'extensions/string_extention'
+require_relative 'ext/string_extention'
 %w[project app game ebook scene].each { |task| require_relative "builder/#{task}_builder" }
 
 class Coronate::CLI < Thor

@@ -1,4 +1,4 @@
-module Extensions
+module Ext
   module MethodHooker
     def self.included(base)
       base.extend(ClassMethods)
